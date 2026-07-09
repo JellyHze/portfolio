@@ -1,5 +1,5 @@
 import Container from "@/components/Container";
-import ProjectCard from "@/components/ProjectCard";
+import ProjectsSection from "@/components/ProjectsSection";
 import Reveal from "@/components/Reveal";
 import SectionHeading from "@/components/SectionHeading";
 import TypingRole from "@/components/TypingRole";
@@ -10,7 +10,6 @@ import HeroVisual from "@/components/HeroVisual";
 import {
   heroRoles,
   profile,
-  projects,
   services,
   skills,
   stats,
@@ -155,25 +154,7 @@ export default function HomePage() {
         </Container>
       </section>
 
-      <section id="projects" className="py-24">
-        <Container>
-          <Reveal>
-            <SectionHeading
-              eyebrow="Selected Works"
-              title="Beberapa project pilihan."
-              description="Bagian ini bisa kamu isi dengan project asli dari GitHub, tugas kuliah, landing page, dashboard, atau aplikasi web yang pernah kamu buat."
-            />
-          </Reveal>
-
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {projects.map((project, index) => (
-              <Reveal key={project.title} delay={index * 120}>
-                <ProjectCard {...project} />
-              </Reveal>
-            ))}
-          </div>
-        </Container>
-      </section>
+      <ProjectsSection />
 
       <JourneySection />
 
