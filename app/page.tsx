@@ -1,8 +1,18 @@
 import Container from "@/components/Container";
+import InfoCard from "@/components/InfoCard";
 import Navbar from "@/components/Navbar";
 import ProjectCard from "@/components/ProjectCard";
 import SectionHeading from "@/components/SectionHeading";
-import { profile, projects, skills } from "@/data/portfolio";
+import Footer from "@/components/Footer";
+import {
+  education,
+  experiences,
+  profile,
+  projects,
+  services,
+  skills,
+  stats,
+} from "@/data/portfolio";
 
 export default function HomePage() {
   return (
@@ -19,7 +29,7 @@ export default function HomePage() {
         <Container>
           <div className="mx-auto max-w-4xl text-center">
             <p className="mb-5 inline-flex rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-zinc-300">
-              Available for new project
+              Available for freelance, internship, and collaboration
             </p>
 
             <h1 className="text-5xl font-bold tracking-tight text-white sm:text-7xl lg:text-8xl">
@@ -49,6 +59,18 @@ export default function HomePage() {
                 Hubungi Saya
               </a>
             </div>
+
+            <div className="mt-14 grid gap-4 sm:grid-cols-3">
+              {stats.map((item) => (
+                <div
+                  key={item.label}
+                  className="rounded-3xl border border-white/10 bg-white/[0.03] p-5"
+                >
+                  <p className="text-3xl font-bold text-white">{item.value}</p>
+                  <p className="mt-2 text-sm text-zinc-400">{item.label}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </Container>
       </section>
@@ -57,44 +79,57 @@ export default function HomePage() {
         <Container>
           <SectionHeading
             eyebrow="About"
-            title="Website yang rapi, cepat, dan mudah dirawat."
+            title="Tentang saya dan cara saya membangun website."
             description={profile.description}
           />
 
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {[
-              ["Clean Code", "Struktur file dipisah agar mudah dikembangkan."],
-              ["Responsive", "Nyaman dibuka di laptop, tablet, dan HP."],
-              ["Secure Basic", "Link, metadata, dan header dibuat lebih aman."],
-              ["Testable", "Data dan komponen dipisah agar mudah dites."],
-            ].map(([title, text]) => (
+          <div className="grid gap-6 md:grid-cols-3">
+            {services.map((service) => (
               <div
-                key={title}
-                className="rounded-3xl border border-white/10 bg-white/[0.03] p-6"
+                key={service.title}
+                className="rounded-3xl border border-white/10 bg-white/[0.03] p-6 transition hover:border-violet-400/40 hover:bg-white/[0.06]"
               >
-                <h3 className="font-semibold text-white">{title}</h3>
-                <p className="mt-3 text-sm leading-6 text-zinc-400">{text}</p>
+                <h3 className="text-lg font-semibold text-white">
+                  {service.title}
+                </h3>
+                <p className="mt-4 leading-7 text-zinc-400">
+                  {service.description}
+                </p>
               </div>
             ))}
           </div>
         </Container>
       </section>
 
-      <section className="py-24">
+      <section id="skills" className="py-24">
         <Container>
           <SectionHeading
-            eyebrow="Tech Stack"
-            title="Tools dan teknologi yang digunakan."
+            eyebrow="Skills"
+            title="Teknologi yang saya gunakan."
+            description="Saya membagi skill berdasarkan area agar lebih mudah dibaca dan dikembangkan."
           />
 
-          <div className="flex flex-wrap gap-3">
-            {skills.map((skill) => (
-              <span
-                key={skill}
-                className="rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-sm text-zinc-300 transition hover:border-violet-400/50 hover:text-white"
+          <div className="grid gap-6 md:grid-cols-3">
+            {skills.map((group) => (
+              <div
+                key={group.category}
+                className="rounded-3xl border border-white/10 bg-white/[0.03] p-6"
               >
-                {skill}
-              </span>
+                <h3 className="text-lg font-semibold text-white">
+                  {group.category}
+                </h3>
+
+                <div className="mt-5 flex flex-wrap gap-2">
+                  {group.items.map((skill) => (
+                    <span
+                      key={skill}
+                      className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-sm text-zinc-300"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
             ))}
           </div>
         </Container>
@@ -105,7 +140,7 @@ export default function HomePage() {
           <SectionHeading
             eyebrow="Selected Works"
             title="Beberapa project pilihan."
-            description="Bagian ini nanti bisa kamu isi dengan project asli dari GitHub, tugas kuliah, landing page, dashboard, atau aplikasi yang pernah kamu buat."
+            description="Bagian ini bisa kamu isi dengan project asli dari GitHub, tugas kuliah, landing page, dashboard, atau aplikasi web yang pernah kamu buat."
           />
 
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -116,9 +151,51 @@ export default function HomePage() {
         </Container>
       </section>
 
+      <section id="experience" className="py-24">
+        <Container>
+          <SectionHeading
+            eyebrow="Journey"
+            title="Pengalaman dan pendidikan."
+            description="Bagian ini membantu pengunjung memahami proses belajar, pengalaman, dan latar belakang kamu."
+          />
+
+          <div className="grid gap-6 lg:grid-cols-2">
+            <div className="space-y-6">
+              <h3 className="text-xl font-semibold text-white">Experience</h3>
+
+              {experiences.map((item) => (
+                <InfoCard
+                  key={`${item.role}-${item.company}`}
+                  title={item.role}
+                  subtitle={item.company}
+                  period={item.period}
+                  description={item.description}
+                />
+              ))}
+            </div>
+
+            <div className="space-y-6">
+              <h3 className="text-xl font-semibold text-white">Education</h3>
+
+              {education.map((item) => (
+                <InfoCard
+                  key={`${item.school}-${item.major}`}
+                  title={item.school}
+                  subtitle={item.major}
+                  period={item.period}
+                  description={item.description}
+                />
+              ))}
+            </div>
+          </div>
+        </Container>
+      </section>
+
       <section id="contact" className="py-24">
         <Container>
-          <div className="rounded-[2rem] border border-white/10 bg-white/[0.04] p-8 text-center sm:p-12">
+          <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.04] p-8 text-center sm:p-12">
+            <div className="absolute left-1/2 top-0 -z-10 h-56 w-56 -translate-x-1/2 rounded-full bg-violet-500/20 blur-3xl" />
+
             <p className="text-sm font-medium uppercase tracking-[0.3em] text-violet-300">
               Contact
             </p>
@@ -148,10 +225,20 @@ export default function HomePage() {
               >
                 GitHub
               </a>
+
+              <a
+                href={profile.linkedin}
+                target="_blank"
+                rel="noreferrer noopener"
+                className="rounded-full border border-white/15 px-6 py-3 text-sm font-semibold text-white transition hover:border-violet-400"
+              >
+                LinkedIn
+              </a>
             </div>
           </div>
         </Container>
       </section>
+      <Footer />
     </main>
   );
 }
