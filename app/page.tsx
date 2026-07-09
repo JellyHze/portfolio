@@ -5,9 +5,13 @@ import Navbar from "@/components/Navbar";
 import ProjectCard from "@/components/ProjectCard";
 import Reveal from "@/components/Reveal";
 import SectionHeading from "@/components/SectionHeading";
+import CursorGlow from "@/components/CursorGlow";
+import ScrollProgress from "@/components/ScrollProgress";
+import TypingRole from "@/components/TypingRole";
 import {
   education,
   experiences,
+  heroRoles,
   profile,
   projects,
   services,
@@ -18,6 +22,8 @@ import {
 export default function HomePage() {
   return (
     <main className="min-h-screen overflow-hidden bg-black text-white">
+      <ScrollProgress />
+      <CursorGlow />
       <Navbar />
 
       <section
@@ -37,9 +43,12 @@ export default function HomePage() {
               {profile.name}
             </h1>
 
-            <p className="mt-5 text-xl font-medium text-violet-300 sm:text-2xl">
-              {profile.role}
-            </p>
+            <div className="mt-5 flex justify-center">
+              <TypingRole
+                words={heroRoles.length > 0 ? heroRoles : [profile.role]}
+                className="text-xl font-medium text-violet-300 sm:text-2xl"
+              />
+            </div>
 
             <p className="mx-auto mt-6 max-w-2xl text-base leading-8 text-zinc-400 sm:text-lg">
               {profile.tagline}

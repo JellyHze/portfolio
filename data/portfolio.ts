@@ -17,6 +17,13 @@ export const profile = {
   resumeUrl: "/cv.pdf",
 };
 
+export const heroRoles = [
+  "Frontend Developer",
+  "Next.js Developer",
+  "Web Developer",
+  "UI Enthusiast",
+];
+
 export const stats = [
   {
     value: "5+",
