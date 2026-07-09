@@ -1,12 +1,10 @@
 import Link from "next/link";
 import Container from "@/components/Container";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import SiteShell from "@/components/SiteShell";
 
 export default function NotFoundPage() {
   return (
-    <main className="min-h-screen bg-black text-white">
-      <Navbar />
+    <SiteShell>
 
       <section className="relative flex min-h-screen items-center pt-24">
         <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,_rgba(124,58,237,0.28),_transparent_35%)]" />
@@ -45,7 +43,6 @@ export default function NotFoundPage() {
         </Container>
       </section>
 
-      <Footer />
-    </main>
+    </SiteShell>
   );
 }

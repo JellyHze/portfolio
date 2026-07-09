@@ -2,8 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Container from "@/components/Container";
-import Footer from "@/components/Footer";
-import Navbar from "@/components/Navbar";
+import SiteShell from "@/components/SiteShell";
 import Reveal from "@/components/Reveal";
 import { getProjectBySlug, projects } from "@/data/portfolio";
 import Image from "next/image";
@@ -52,8 +51,7 @@ export default async function ProjectDetailPage({
   const hasRepo = project.repo && project.repo !== "#";
 
   return (
-    <main className="min-h-screen bg-black text-white">
-      <Navbar />
+    <SiteShell>
 
       <section className="relative pt-32 pb-20">
         <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,_rgba(124,58,237,0.3),_transparent_35%)]" />
@@ -152,8 +150,7 @@ export default async function ProjectDetailPage({
         </Container>
       </section>
 
-      <Footer />
-    </main>
+    </SiteShell>
   );
 }
 

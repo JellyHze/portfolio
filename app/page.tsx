@@ -1,14 +1,11 @@
 import Container from "@/components/Container";
-import Footer from "@/components/Footer";
-import Navbar from "@/components/Navbar";
 import ProjectCard from "@/components/ProjectCard";
 import Reveal from "@/components/Reveal";
 import SectionHeading from "@/components/SectionHeading";
-import CursorGlow from "@/components/CursorGlow";
-import ScrollProgress from "@/components/ScrollProgress";
 import TypingRole from "@/components/TypingRole";
 import JourneySection from "@/components/JourneySection";
 import ContactForm from "@/components/ContactForm";
+import SiteShell from "@/components/SiteShell";
 import {
   heroRoles,
   profile,
@@ -20,11 +17,7 @@ import {
 
 export default function HomePage() {
   return (
-    <main className="min-h-screen overflow-hidden bg-black text-white">
-      <ScrollProgress />
-      <CursorGlow />
-      <Navbar />
-
+    <SiteShell>
       <section
         id="home"
         className="relative flex min-h-screen items-center pt-24"
@@ -241,7 +234,6 @@ export default function HomePage() {
         </Container>
       </section>
 
-      <Footer />
-    </main>
+    </SiteShell>
   );
 }
