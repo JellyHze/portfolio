@@ -65,7 +65,7 @@ export const projects: Project[] = [
     image:"",
     tech: ["Next.js", "TypeScript", "Tailwind CSS"],
     link: "#",
-    repo: "https://github.com/usernamegithub/namarepo",
+    repo: "#",
     status: "Featured",
     features: [
       "Responsive layout untuk desktop dan mobile",

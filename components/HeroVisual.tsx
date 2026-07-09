@@ -1,52 +1,305 @@
-const techItems = [
-  "Next.js",
-  "React",
-  "TypeScript",
-  "Tailwind",
-  "GitHub",
-  "Vercel",
+"use client";
+
+import { useEffect, useState } from "react";
+
+const skills = [
+  {
+    name: "Next.js",
+    level: 90,
+  },
+  {
+    name: "React",
+    level: 85,
+  },
+  {
+    name: "TypeScript",
+    level: 80,
+  },
+  {
+    name: "Tailwind",
+    level: 90,
+  },
+  {
+    name: "GitHub",
+    level: 85,
+  },
+  {
+    name: "Vercel",
+    level: 80,
+  },
 ];
 
-export default function HeroVisual() {
-  return (
-    <div className="relative mx-auto mt-14 h-72 max-w-3xl sm:h-80">
-      <div className="absolute left-1/2 top-1/2 h-52 w-52 -translate-x-1/2 -translate-y-1/2 rounded-full border border-violet-300/20 bg-white/[0.03] shadow-[0_0_80px_rgba(139,92,246,0.25)]" />
 
-      <div className="absolute left-1/2 top-1/2 h-32 w-32 -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/10 bg-black/60 p-5 text-center backdrop-blur">
-        <div className="flex h-full flex-col items-center justify-center rounded-full border border-white/10 bg-white/[0.04]">
-          <p className="text-xs uppercase tracking-[0.25em] text-violet-300">
-            Stack
-          </p>
-          <p className="mt-2 text-lg font-semibold text-white">Web Dev</p>
+const positions = [
+  "left-4 top-8",
+  "right-8 top-10",
+  "left-16 bottom-10",
+  "right-4 bottom-14",
+  "left-1/2 top-0 -translate-x-1/2",
+  "left-1/2 bottom-0 -translate-x-1/2",
+];
+
+
+export default function HeroVisual() {
+
+  const [activeSkill, setActiveSkill] = useState(skills[0]);
+  const [isHovered, setIsHovered] = useState(false);
+
+
+  // Auto rotate skill
+  useEffect(() => {
+
+    if (isHovered) return;
+
+
+    const interval = setInterval(() => {
+
+      setActiveSkill((current) => {
+
+        const currentIndex = skills.findIndex(
+          (skill) => skill.name === current.name
+        );
+
+
+        const nextIndex =
+          (currentIndex + 1) % skills.length;
+
+
+        return skills[nextIndex];
+
+      });
+
+
+    }, 2500);
+
+
+    return () => clearInterval(interval);
+
+
+  }, [isHovered]);
+
+
+
+  const progressDegree = activeSkill.level * 3.6;
+
+
+
+  return (
+
+    <div className="relative mx-auto mt-14 h-72 max-w-3xl sm:h-80">
+
+
+      {/* Outer Glow */}
+
+      <div
+        className="
+        absolute
+        left-1/2
+        top-1/2
+        h-52
+        w-52
+        -translate-x-1/2
+        -translate-y-1/2
+        rounded-full
+        border
+        border-violet-300/20
+        bg-white/[0.03]
+        shadow-[0_0_80px_rgba(139,92,246,0.25)]
+        "
+      />
+
+
+
+      {/* Skill Circle */}
+
+      <div
+        className="
+        absolute
+        left-1/2
+        top-1/2
+        h-40
+        w-40
+        -translate-x-1/2
+        -translate-y-1/2
+        "
+      >
+
+
+        {/* Progress Ring */}
+
+        <div
+          className="
+          absolute
+          inset-0
+          rounded-full
+          transition-all
+          duration-700
+          "
+          style={{
+            background: `
+            conic-gradient(
+              #a78bfa ${progressDegree}deg,
+              rgba(255,255,255,0.08) ${progressDegree}deg
+            )
+            `,
+          }}
+        />
+
+
+
+        {/* Inner Circle */}
+
+        <div
+          className="
+          absolute
+          inset-[8px]
+          flex
+          items-center
+          justify-center
+          rounded-full
+          border
+          border-white/10
+          bg-black/90
+          backdrop-blur
+          "
+        >
+
+          <div
+            key={activeSkill.name}
+            className="
+            text-center
+            animate-pulse
+            "
+          >
+
+            <p
+              className="
+              text-xs
+              uppercase
+              tracking-[0.25em]
+              text-violet-300
+              "
+            >
+              Skill
+            </p>
+
+
+            <p
+              className="
+              mt-1
+              text-2xl
+              font-bold
+              text-white
+              "
+            >
+              {activeSkill.level}%
+            </p>
+
+
+            <p
+              className="
+              text-sm
+              text-zinc-400
+              "
+            >
+              {activeSkill.name}
+            </p>
+
+
+          </div>
+
+
         </div>
+
+
       </div>
 
-      {techItems.map((item, index) => {
-        const positions = [
-          "left-4 top-8",
-          "right-8 top-10",
-          "left-16 bottom-10",
-          "right-4 bottom-14",
-          "left-1/2 top-0 -translate-x-1/2",
-          "left-1/2 bottom-0 -translate-x-1/2",
-        ];
 
-        return (
-          <div
-            key={item}
-            className={[
-              "absolute rounded-2xl border border-white/10 bg-black/50 px-5 py-3 text-sm font-medium text-zinc-200 shadow-2xl backdrop-blur-xl",
-              "animate-[float_6s_ease-in-out_infinite]",
-              positions[index],
-            ].join(" ")}
-            style={{
-              animationDelay: `${index * 350}ms`,
-            }}
-          >
-            {item}
-          </div>
-        );
-      })}
+
+
+      {/* Floating Skill Badge */}
+
+
+      {skills.map((skill, index) => (
+
+        <button
+
+          key={skill.name}
+
+          type="button"
+
+
+          onMouseEnter={() => {
+
+            setIsHovered(true);
+            setActiveSkill(skill);
+
+          }}
+
+
+          onMouseLeave={() => {
+
+            setIsHovered(false);
+
+          }}
+
+
+          className={[
+
+            `
+            absolute
+            rounded-2xl
+            border
+            border-white/10
+            bg-black/50
+            px-5
+            py-3
+            text-sm
+            font-medium
+            text-zinc-200
+            shadow-2xl
+            backdrop-blur-xl
+            transition
+            duration-300
+            hover:border-violet-400
+            hover:bg-white/10
+            hover:scale-110
+            `,
+
+
+            activeSkill.name === skill.name
+              ? "border-violet-400 bg-white/10 scale-110"
+              : "",
+
+
+            "animate-[float_6s_ease-in-out_infinite]",
+
+
+            positions[index],
+
+
+          ].join(" ")}
+
+
+          style={{
+
+            animationDelay: `${index * 350}ms`,
+
+          }}
+
+        >
+
+          {skill.name}
+
+
+        </button>
+
+
+      ))}
+
+
+
     </div>
+
   );
 }

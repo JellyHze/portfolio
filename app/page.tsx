@@ -1,5 +1,5 @@
 import Container from "@/components/Container";
-import ProjectsSection from "@/components/ProjectsSection";
+import ProjectsSection from "@/components/ProjectSection";
 import Reveal from "@/components/Reveal";
 import SectionHeading from "@/components/SectionHeading";
 import TypingRole from "@/components/TypingRole";
@@ -154,7 +154,7 @@ export default function HomePage() {
         </Container>
       </section>
 
-      <ProjectsSection />
+     <ProjectsSection />
 
       <JourneySection />
 

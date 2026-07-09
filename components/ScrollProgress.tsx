@@ -8,6 +8,7 @@ export default function ScrollProgress() {
   useEffect(() => {
     const updateProgress = () => {
       const scrollTop = window.scrollY;
+
       const scrollHeight =
         document.documentElement.scrollHeight - window.innerHeight;
 
@@ -21,23 +22,25 @@ export default function ScrollProgress() {
 
     updateProgress();
 
-    window.addEventListener("scroll", updateProgress, { passive: true });
-    window.addEventListener("resize", updateProgress);
+    window.addEventListener("scroll", updateProgress, {
+      passive: true,
+    });
 
     return () => {
       window.removeEventListener("scroll", updateProgress);
-      window.removeEventListener("resize", updateProgress);
     };
   }, []);
 
   return (
     <div
       aria-hidden="true"
-      className="fixed left-0 top-0 z-[70] h-1 w-full bg-transparent"
+      className="fixed left-0 top-0 z-[100] h-1.5 w-full bg-white/5"
     >
       <div
-        className="h-full bg-violet-400 transition-[width] duration-150 ease-out"
-        style={{ width: `${progress}%` }}
+        className="h-full bg-gradient-to-r from-violet-400 via-fuchsia-400 to-cyan-300 shadow-[0_0_20px_rgba(167,139,250,0.8)] transition-[width] duration-150"
+        style={{
+          width: `${progress}%`,
+        }}
       />
     </div>
   );
