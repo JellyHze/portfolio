@@ -1,6 +1,8 @@
+import type { Project } from "@/types/portfolio";
+
 export const profile = {
   name: "Kadek Dwiyana Pernanda",
-  role: "Full-Stack Developer",
+  role: "Frontend Developer",
   location: "Indonesia",
   email: "kadekpernanda@gmail.com",
   github: "https://github.com/JellyHze",
@@ -45,35 +47,96 @@ export const skills = [
   },
 ];
 
-export const projects = [
+export const projects: Project[] = [
   {
     title: "Personal Portfolio Website",
+    slug: "personal-portfolio",
     description:
-      "Website portfolio pribadi dengan desain modern, dark mode, responsive layout, dan struktur kode yang mudah dikembangkan.",
+      "Website portfolio pribadi yang dibangun menggunakan Next.js, TypeScript, dan Tailwind CSS.",
+    longDescription:
+      "Personal Portfolio Website adalah project portfolio pribadi yang dibuat untuk menampilkan profil, skill, pengalaman, pendidikan, project, dan kontak dalam satu website yang modern, responsif, dan mudah dikembangkan. Project ini dirancang dengan pendekatan component-based agar struktur kode lebih rapi dan mudah dirawat.",
     tech: ["Next.js", "TypeScript", "Tailwind CSS"],
     link: "#",
-    repo: "https://github.com/JellyHze/portfolio",
+    repo: "https://github.com/usernamegithub/namarepo",
     status: "Featured",
+    features: [
+      "Responsive layout untuk desktop dan mobile",
+      "Dark mode design dengan gradient dan glow effect",
+      "Reusable components agar mudah dikembangkan",
+      "Project preview card dengan tampilan mockup browser",
+      "SEO metadata dasar untuk kebutuhan portfolio",
+    ],
+    challenges: [
+      "Membuat struktur folder yang rapi dan mudah dirawat",
+      "Menjaga tampilan tetap modern tanpa membuat website terlalu berat",
+      "Membuat komponen yang reusable dan konsisten",
+    ],
+    learnings: [
+      "Memahami struktur Next.js App Router",
+      "Membuat UI dengan Tailwind CSS",
+      "Memisahkan data dan tampilan agar project maintainable",
+      "Menjalankan build check sebelum push atau deploy",
+    ],
   },
   {
-    title: "Landing Page Design",
+    title: "Modern Landing Page",
+    slug: "modern-landing-page",
     description:
-      "Landing page modern untuk kebutuhan personal branding, promosi produk, atau profil bisnis sederhana.",
+      "Landing page modern dengan tampilan clean, responsive layout, dan fokus pada penyampaian informasi secara jelas.",
+    longDescription:
+      "Modern Landing Page adalah konsep halaman promosi digital yang dirancang untuk menampilkan informasi produk, jasa, atau personal branding secara singkat, jelas, dan menarik. Fokus utama project ini adalah membuat tampilan yang rapi, cepat dipahami, dan nyaman diakses dari berbagai perangkat.",
     tech: ["React", "Tailwind CSS"],
     link: "#",
     repo: "#",
     status: "Practice",
+    features: [
+      "Hero section yang jelas dan menarik",
+      "Responsive section layout",
+      "CTA button untuk mendorong interaksi user",
+      "Struktur komponen yang sederhana dan mudah dikembangkan",
+    ],
+    challenges: [
+      "Membuat tampilan tetap sederhana tetapi terlihat profesional",
+      "Menentukan hierarki visual agar informasi mudah dibaca",
+    ],
+    learnings: [
+      "Membuat layout landing page",
+      "Mengatur spacing, typography, dan responsive design",
+      "Membuat desain yang fokus pada kebutuhan user",
+    ],
   },
   {
-    title: "Simple Dashboard UI",
+    title: "Dashboard UI Concept",
+    slug: "dashboard-ui-concept",
     description:
-      "Tampilan dashboard sederhana dengan card statistik, layout responsif, dan struktur komponen yang rapi.",
+      "Konsep tampilan dashboard sederhana dengan card statistik, layout responsif, dan struktur komponen yang mudah digunakan kembali.",
+    longDescription:
+      "Dashboard UI Concept adalah eksplorasi tampilan dashboard untuk menampilkan data secara ringkas melalui card statistik, section informasi, dan layout yang responsif. Project ini berfokus pada pembuatan UI yang bersih, informatif, dan mudah dikembangkan menjadi aplikasi yang lebih kompleks.",
     tech: ["Next.js", "Tailwind CSS"],
     link: "#",
     repo: "#",
     status: "Practice",
+    features: [
+      "Card statistik",
+      "Layout responsif",
+      "Komponen UI reusable",
+      "Tampilan dark dashboard modern",
+    ],
+    challenges: [
+      "Membuat informasi terlihat padat tetapi tetap mudah dibaca",
+      "Menjaga konsistensi spacing dan ukuran komponen",
+    ],
+    learnings: [
+      "Mendesain dashboard sederhana",
+      "Membuat struktur card dan layout grid",
+      "Menjaga konsistensi UI dengan Tailwind CSS",
+    ],
   },
 ];
+
+export function getProjectBySlug(slug: string) {
+  return projects.find((project) => project.slug === slug);
+}
 
 export const experiences = [
   {

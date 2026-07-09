@@ -1,7 +1,9 @@
+import Link from "next/link";
 import ProjectPreview from "@/components/ProjectPreview";
 
 type ProjectCardProps = {
   title: string;
+  slug: string;
   description: string;
   tech: string[];
   link: string;
@@ -11,6 +13,7 @@ type ProjectCardProps = {
 
 export default function ProjectCard({
   title,
+  slug,
   description,
   tech,
   link,
@@ -42,21 +45,24 @@ export default function ProjectCard({
           ))}
         </div>
 
-        <div className="mt-6 flex gap-4">
+        <div className="mt-6 flex flex-wrap gap-4">
+          <Link
+            href={`/projects/${slug}`}
+            className="text-sm font-medium text-violet-300 transition hover:text-violet-200"
+          >
+            View Case Study
+          </Link>
+
           {hasDemo ? (
             <a
               href={link}
               target="_blank"
               rel="noreferrer noopener"
-              className="text-sm font-medium text-violet-300 transition hover:text-violet-200"
+              className="text-sm font-medium text-zinc-400 transition hover:text-white"
             >
               Live Demo
             </a>
-          ) : (
-            <span className="text-sm font-medium text-zinc-600">
-              Demo Soon
-            </span>
-          )}
+          ) : null}
 
           {hasRepo ? (
             <a
@@ -67,11 +73,7 @@ export default function ProjectCard({
             >
               Source Code
             </a>
-          ) : (
-            <span className="text-sm font-medium text-zinc-600">
-              Private Repo
-            </span>
-          )}
+          ) : null}
         </div>
       </div>
     </article>
