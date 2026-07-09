@@ -59,6 +59,14 @@ export default function HomePage() {
               >
                 Hubungi Saya
               </a>
+              <a
+                href={profile.resumeUrl}
+                target="_blank"
+                rel="noreferrer noopener"
+                className="rounded-full border border-white/15 px-6 py-3 text-sm font-semibold text-white transition hover:border-violet-400 hover:bg-violet-400/10"
+              >
+                Download CV
+              </a>
             </div>
 
             <div className="mt-14 grid gap-4 sm:grid-cols-3">
@@ -246,6 +254,14 @@ export default function HomePage() {
                 >
                   GitHub
                 </a>
+                <a
+                  href={profile.resumeUrl}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  className="rounded-full border border-white/15 px-6 py-3 text-sm font-semibold text-white transition hover:border-violet-400 hover:bg-violet-400/10"
+                >
+                  Download CV
+              </a>
               </div>
             </div>
           </Reveal>

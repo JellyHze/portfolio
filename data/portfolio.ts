@@ -12,7 +12,7 @@ export const profile = {
   description:
     "Saya adalah Frontend Developer yang memiliki ketertarikan pada pengembangan website modern, bersih, responsif, dan mudah dikembangkan. Saya fokus membangun antarmuka yang nyaman digunakan, memiliki struktur kode yang rapi, serta memperhatikan performa, maintainability, dan pengalaman pengguna.",
 
-  resumeUrl: "#",
+  resumeUrl: "/cv.pdf",
 };
 
 export const stats = [
