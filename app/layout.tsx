@@ -3,7 +3,7 @@ import { profile } from "@/data/portfolio";
 import "./globals.css";
 
 
-const siteUrl = "https://your-domain.vercel.app";
+const siteUrl = "https://portfolio-tau-sable-vijkdwrnqn.vercel.app";
 
 
 export const metadata: Metadata = {

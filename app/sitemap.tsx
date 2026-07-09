@@ -5,7 +5,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [
     {
-      url: "https://your-domain.vercel.app",
+      url:"https://portfolio-tau-sable-vijkdwrnqn.vercel.app",
       lastModified: new Date(),
     },
   ];
