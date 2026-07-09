@@ -5,6 +5,7 @@ type ProjectCardProps = {
   title: string;
   slug: string;
   description: string;
+  image?: string;
   tech: string[];
   link: string;
   repo: string;
@@ -15,6 +16,7 @@ export default function ProjectCard({
   title,
   slug,
   description,
+  image,
   tech,
   link,
   repo,
@@ -27,7 +29,7 @@ export default function ProjectCard({
     <article className="group relative h-full overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] p-6 transition duration-300 hover:-translate-y-1 hover:border-violet-400/50 hover:bg-white/[0.06]">
       <div className="absolute right-0 top-0 h-32 w-32 translate-x-12 -translate-y-12 rounded-full bg-violet-500/20 blur-3xl transition group-hover:bg-violet-400/30" />
 
-      <ProjectPreview title={title} status={status} tech={tech} />
+      <ProjectPreview title={title} status={status} tech={tech} image={image} />
 
       <div className="relative">
         <h3 className="text-xl font-semibold text-white">{title}</h3>

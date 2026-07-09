@@ -55,6 +55,7 @@ export const projects: Project[] = [
       "Website portfolio pribadi yang dibangun menggunakan Next.js, TypeScript, dan Tailwind CSS.",
     longDescription:
       "Personal Portfolio Website adalah project portfolio pribadi yang dibuat untuk menampilkan profil, skill, pengalaman, pendidikan, project, dan kontak dalam satu website yang modern, responsif, dan mudah dikembangkan. Project ini dirancang dengan pendekatan component-based agar struktur kode lebih rapi dan mudah dirawat.",
+    image:"",
     tech: ["Next.js", "TypeScript", "Tailwind CSS"],
     link: "#",
     repo: "https://github.com/usernamegithub/namarepo",
@@ -85,6 +86,7 @@ export const projects: Project[] = [
       "Landing page modern dengan tampilan clean, responsive layout, dan fokus pada penyampaian informasi secara jelas.",
     longDescription:
       "Modern Landing Page adalah konsep halaman promosi digital yang dirancang untuk menampilkan informasi produk, jasa, atau personal branding secara singkat, jelas, dan menarik. Fokus utama project ini adalah membuat tampilan yang rapi, cepat dipahami, dan nyaman diakses dari berbagai perangkat.",
+    image:"",
     tech: ["React", "Tailwind CSS"],
     link: "#",
     repo: "#",
@@ -112,6 +114,7 @@ export const projects: Project[] = [
       "Konsep tampilan dashboard sederhana dengan card statistik, layout responsif, dan struktur komponen yang mudah digunakan kembali.",
     longDescription:
       "Dashboard UI Concept adalah eksplorasi tampilan dashboard untuk menampilkan data secara ringkas melalui card statistik, section informasi, dan layout yang responsif. Project ini berfokus pada pembuatan UI yang bersih, informatif, dan mudah dikembangkan menjadi aplikasi yang lebih kompleks.",
+    image: "",
     tech: ["Next.js", "Tailwind CSS"],
     link: "#",
     repo: "#",

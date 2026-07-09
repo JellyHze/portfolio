@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import Reveal from "@/components/Reveal";
 import { getProjectBySlug, projects } from "@/data/portfolio";
+import Image from "next/image";
 
 type ProjectDetailPageProps = {
   params: Promise<{
@@ -101,7 +102,7 @@ export default async function ProjectDetailPage({
                     Live Demo
                   </a>
                 ) : null}
-
+                
                 {hasRepo ? (
                   <a
                     href={project.repo}
@@ -112,6 +113,21 @@ export default async function ProjectDetailPage({
                     Source Code
                   </a>
                 ) : null}
+
+                {project.image ? (
+                  <div className="mt-14 overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03]">
+                    <div className="relative aspect-video">
+                      <Image
+                        src={project.image}
+                        alt={`Preview ${project.title}`}
+                        fill
+                        sizes="(max-width: 768px) 100vw, 900px"
+                        className="object-cover"
+                        priority
+                      />
+                    </div>
+                  </div>
+                ) : null}                
               </div>
             </div>
           </Reveal>
