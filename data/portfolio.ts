@@ -35,7 +35,7 @@ export const heroRoles = [
 export const stats = [
   {
     value: 3,
-    suffix: "+",
+    suffix: "",
     label: "Major Projects",
     description:
       "Project website dan sistem yang dikembangkan",
@@ -98,193 +98,262 @@ export const skills = [
 
 export const projects: Project[] = [
 
-  {
-    title: "Personal Portfolio Website",
+{
+  title: "Personal Portfolio Website",
 
-    slug: "personal-portfolio",
+  slug: "personal-portfolio",
 
-    description:
-      "Website portfolio modern untuk menampilkan profil, pengalaman, skill, dan project menggunakan teknologi frontend terbaru.",
-
-
-    longDescription:
-      "Personal Portfolio Website merupakan website pribadi yang dirancang sebagai media profesional untuk memperkenalkan kemampuan, pengalaman, dan project yang telah dibuat. Website ini menggunakan pendekatan component-based agar struktur kode mudah dikembangkan dan dipelihara.",
+  status: "Frontend Engineering",
 
 
-    image:"",
+  description:
+    "Website portfolio pribadi untuk menampilkan profil, pengalaman, skill, dan project yang telah dikembangkan.",
 
 
-    tech:[
-      "Next.js",
-      "TypeScript",
-      "Tailwind CSS"
+  longDescription:
+    "Personal Portfolio Website merupakan website portfolio pribadi yang dikembangkan menggunakan pendekatan modern dengan component-based architecture agar memiliki struktur kode yang rapi, scalable, dan mudah dikembangkan.",
+  
+  image:"/projects/portfolio/portfolio1.jpeg",
+
+  images:[
+    "/projects/portfolio/portfolio1.jpeg",
+    "/projects/portfolio/portfolio2.jpeg",
+  ],
+
+
+  tech:[
+    "Next.js",
+    "React",
+    "TypeScript",
+    "Tailwind CSS",
+  ],
+
+
+  link:"#",
+
+  repo:"#",
+
+
+
+  overview:
+    "Website ini dibuat sebagai media personal branding untuk menampilkan pengalaman, kemampuan teknis, serta project yang pernah dikembangkan dalam satu platform modern.",
+
+
+
+  role:
+    "Full Stack Web Developer yang bertanggung jawab dalam proses perancangan UI, implementasi component, pengembangan fitur, hingga optimasi struktur aplikasi.",
+
+
+
+  features:[
+    "Responsive design untuk berbagai perangkat",
+    "Dynamic project showcase",
+    "Reusable component architecture",
+    "Animated user interface",
+    "Project detail page menggunakan dynamic routing",
+  ],
+
+
+
+  implementation:[
+    "Menggunakan Next.js sebagai framework utama aplikasi",
+    "Membangun interface menggunakan React component",
+    "Menggunakan TypeScript untuk meningkatkan maintainability",
+    "Menggunakan Tailwind CSS untuk styling system",
+  ],
+
+
+
+  challenges:[
+    "Membangun desain modern dengan performa tetap optimal",
+    "Membuat struktur komponen yang mudah dikembangkan",
+    "Mengatur reusable component agar kode tetap bersih",
+  ],
+
+
+
+  learnings:[
+    "Modern frontend development workflow",
+    "Component-based architecture",
+    "Clean code implementation",
+    "Responsive web development",
+  ],
+},
+
+{
+  title:"Hotel Reservation System",
+
+  slug:"hotel-reservation-system",
+
+  status:"Full Stack Web Application",
+
+
+  description:
+  "Aplikasi reservasi hotel berbasis web dengan sistem user dan staff.",
+
+
+  longDescription:
+  "Hotel Reservation System merupakan aplikasi berbasis web yang dikembangkan untuk mengelola proses reservasi hotel mulai dari registrasi pengguna, pemesanan kamar, konfirmasi pembayaran, hingga pembuatan bukti reservasi.",
+
+
+    image:"/projects/hotel/hotel1.jpeg",
+
+    images:[
+      "/projects/hotel/hotel1.jpeg",
+      "/projects/hotel/hotel2.jpeg",
     ],
 
 
-    link:"#",
+  tech:[
+  "PHP",
+  "CodeIgniter",
+  "HTML",
+  "CSS",
+  "Database",
+  ],
 
-    repo:"#",
 
-    status:"Frontend Engineering",
+  link:"#",
+
+  repo:"#",
 
 
-    features:[
-      "Modern responsive interface",
-      "Reusable component architecture",
-      "Interactive animation",
-      "SEO metadata implementation",
-      "Dark futuristic design"
+
+  overview:
+  "Sistem ini dibuat untuk membantu digitalisasi proses reservasi hotel serta mempermudah pengelolaan transaksi oleh pengguna dan staff.",
+
+
+
+  role:
+  "Full Stack Web Developer yang mengembangkan frontend, backend logic, database workflow, serta sistem administrasi staff.",
+
+
+
+  features:[
+  "User registration dan authentication",
+  "Manajemen data kamar",
+  "Sistem reservasi hotel",
+  "Pengelolaan status pembayaran",
+  "Dashboard staff",
+  "Cetak bukti reservasi",
+  ],
+
+
+
+  implementation:[
+  "Membangun backend menggunakan PHP CodeIgniter",
+  "Membuat database untuk user, kamar, dan transaksi",
+  "Mengimplementasikan alur reservasi dari user hingga staff",
+  "Membangun interface menggunakan HTML dan CSS",
+  ],
+
+
+
+  challenges:[
+  "Mengelola perubahan status transaksi pembayaran",
+  "Membuat sinkronisasi data antara user dan staff",
+  "Merancang database agar mendukung proses reservasi",
+  ],
+
+
+
+  learnings:[
+  "Pengembangan sistem informasi berbasis web",
+  "Database relationship management",
+  "Backend workflow design",
+  "Business process implementation",
+  ],
+
+},
+
+
+
+{
+
+  title:"Heart Valve Leakage Detection System",
+
+  slug:"heart-valve-leakage-detection",
+
+  status:"Machine Learning Integration",
+
+
+  description:
+  "Aplikasi web untuk membantu analisis kebocoran katup jantung menggunakan pendekatan data mining.",
+
+
+  longDescription:
+  "Heart Valve Leakage Detection System merupakan aplikasi berbasis web yang mengintegrasikan Laravel, Python, dan Flask API untuk menghubungkan sistem web dengan proses analisis data mining.",
+
+
+    image:"/projects/heart-valve/heart-valve1.jpeg",
+
+    images:[
+      "/projects/heart-valve/heart-valve1.jpeg",
+      "/projects/heart-valve/heart-valve2.jpeg",
     ],
 
 
-    challenges:[
-      "Membuat struktur project yang scalable",
-      "Menjaga performa website tetap ringan",
-      "Membangun UI yang modern tetapi mudah digunakan"
-    ],
+  tech:[
+  "Laravel",
+  "Python",
+  "Flask API",
+  "Data Mining",
+  "Database",
+  ],
 
 
-    learnings:[
-      "Next.js App Router",
-      "Component based development",
-      "TypeScript implementation",
-      "Frontend architecture"
-    ]
+  link:"#",
 
-  },
+  repo:"#",
 
 
 
-  {
-    title:"Hotel Reservation System",
-
-    slug:"hotel-reservation-system",
-
-
-    description:
-      "Sistem reservasi hotel berbasis web dengan fitur registrasi user, pemesanan kamar, manajemen pembayaran, dan cetak bukti reservasi.",
+  overview:
+  "Sistem ini dikembangkan untuk membantu proses analisis awal kebocoran katup jantung melalui pengolahan data dan menampilkan hasil analisis melalui aplikasi web.",
 
 
 
-    longDescription:
-      "Hotel Reservation System merupakan aplikasi berbasis web yang dibuat untuk mengelola proses reservasi hotel mulai dari pembuatan akun user, pemesanan kamar, proses pembayaran melalui validasi staff, hingga pencetakan resi reservasi. Sistem ini menerapkan konsep role user dan staff untuk mengatur alur kerja aplikasi.",
+  role:
+  "Full Stack Developer yang bertanggung jawab dalam pengembangan website, integrasi API, serta komunikasi antara Laravel dengan Python model.",
 
 
 
-    image:"",
-
-
-    tech:[
-      "PHP",
-      "CodeIgniter",
-      "HTML",
-      "CSS",
-      "Database"
-    ],
-
-
-    link:"#",
-
-    repo:"#",
-
-    status:"Full Stack",
+  features:[
+  "Input data pemeriksaan",
+  "Pengolahan data menggunakan model analisis",
+  "Integrasi Laravel dengan Flask API",
+  "Menampilkan hasil prediksi",
+  "Riwayat hasil pemeriksaan",
+  ],
 
 
 
-    features:[
-      "User authentication",
-      "Hotel room reservation",
-      "Staff payment validation",
-      "Reservation status management",
-      "Receipt printing"
-    ],
+  implementation:[
+  "Membangun aplikasi web menggunakan Laravel",
+  "Membuat API menggunakan Flask untuk komunikasi sistem",
+  "Menghubungkan proses Python dengan aplikasi web",
+  "Mengelola alur input hingga output hasil analisis",
+  ],
 
 
 
-    challenges:[
-      "Membuat alur reservasi yang sesuai kebutuhan bisnis",
-      "Mengatur hak akses user dan staff",
-      "Mengelola data transaksi reservasi"
-    ],
+  challenges:[
+  "Mengintegrasikan dua teknologi berbeda Laravel dan Python",
+  "Mengelola komunikasi data melalui API",
+  "Membuat sistem analisis dapat digunakan melalui interface web",
+  ],
 
 
 
-    learnings:[
-      "Backend web development",
-      "Database management",
-      "Business process implementation",
-      "Role based system"
-    ]
-
-  },
+  learnings:[
+  "REST API implementation",
+  "Machine learning deployment workflow",
+  "Backend integration",
+  "Data-driven application development",
+  ],
 
 
-
-
-  {
-    title:"Heart Valve Leakage Detection System",
-
-    slug:"heart-valve-leakage-detection",
-
-
-    description:
-      "Sistem deteksi kebocoran katup jantung menggunakan pendekatan data mining dengan integrasi Laravel, Python, dan Flask API.",
-
-
-
-    longDescription:
-      "Heart Valve Leakage Detection System merupakan aplikasi berbasis web yang mengintegrasikan Laravel sebagai platform utama dengan Python melalui Flask API untuk menjalankan proses analisis menggunakan metode data mining. Sistem ini dibuat untuk membantu proses prediksi berdasarkan data yang diberikan pengguna.",
-
-
-
-    image:"",
-
-
-    tech:[
-      "Laravel",
-      "Python",
-      "Flask API",
-      "Data Mining"
-    ],
-
-
-
-    link:"#",
-
-    repo:"#",
-
-    status:"Machine Learning Integration",
-
-
-
-
-    features:[
-      "Laravel web interface",
-      "Python data processing",
-      "Flask API integration",
-      "Prediction result display",
-      "Machine learning workflow"
-    ],
-
-
-
-    challenges:[
-      "Menghubungkan Laravel dengan Python",
-      "Membangun komunikasi API",
-      "Mengintegrasikan model analisis ke website"
-    ],
-
-
-
-    learnings:[
-      "API integration",
-      "Machine learning implementation",
-      "Backend communication",
-      "System integration"
-    ]
-
-  }
-
+},
 ];
 
 export function getProjectBySlug(slug: string) {

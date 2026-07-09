@@ -25,59 +25,239 @@ export default function ProjectCard({
   const hasDemo = link && link !== "#";
   const hasRepo = repo && repo !== "#";
 
-  return (
-    <article className="group relative h-full overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] p-6 transition duration-300 hover:-translate-y-1 hover:border-violet-400/50 hover:bg-white/[0.06]">
-      <div className="absolute right-0 top-0 h-32 w-32 translate-x-12 -translate-y-12 rounded-full bg-violet-500/20 blur-3xl transition group-hover:bg-violet-400/30" />
 
-      <ProjectPreview title={title} status={status} tech={tech} image={image} />
+  return (
+      <article
+        className="
+        group relative overflow-hidden rounded-[2rem]
+        border border-white/10
+        bg-gradient-to-br from-white/[0.05] to-white/[0.02]
+        p-6
+        transition-all duration-500
+        hover:-translate-y-2
+        hover:border-violet-400/50
+        hover:shadow-[0_20px_80px_rgba(139,92,246,0.18)]
+        "
+      >
+
+      {/* glow */}
+      <div
+        className="
+        pointer-events-none
+        absolute
+        -right-24
+        -top-24
+        h-64
+        w-64
+        rounded-full
+        bg-violet-500/20
+        blur-3xl
+        opacity-70
+        transition-all
+        duration-700
+        group-hover:scale-125
+        group-hover:bg-violet-400/30
+        "
+      />
+
 
       <div className="relative">
-        <h3 className="text-xl font-semibold text-white">{title}</h3>
 
-        <p className="mt-3 leading-7 text-zinc-400">{description}</p>
 
-        <div className="mt-5 flex flex-wrap gap-2">
-          {tech.map((item) => (
-            <span
-              key={item}
-              className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-zinc-300"
-            >
-              {item}
-            </span>
-          ))}
-        </div>
+        {/* category badge */}
 
-        <div className="mt-6 flex flex-wrap gap-4">
-          <Link
-            href={`/projects/${slug}`}
-            className="text-sm font-medium text-violet-300 transition hover:text-violet-200"
+        <div className="mb-5 flex items-center justify-between">
+
+          <span
+            className="
+            rounded-full
+            border border-violet-400/30
+            bg-violet-400/10
+            px-3 py-1
+            text-xs font-medium
+            text-violet-300
+            "
           >
-            View Case Study
-          </Link>
+            {status}
+          </span>
 
-          {hasDemo ? (
-            <a
-              href={link}
-              target="_blank"
-              rel="noreferrer noopener"
-              className="text-sm font-medium text-zinc-400 transition hover:text-white"
-            >
-              Live Demo
-            </a>
-          ) : null}
 
-          {hasRepo ? (
-            <a
-              href={repo}
-              target="_blank"
-              rel="noreferrer noopener"
-              className="text-sm font-medium text-zinc-400 transition hover:text-white"
-            >
-              Source Code
-            </a>
-          ) : null}
+          <span
+            className="
+            text-xs text-zinc-500
+            opacity-0
+            transition
+            duration-300
+            group-hover:opacity-100
+            "
+          >
+            View Project
+          </span>
+
+
         </div>
+
+
+
+        {/* preview */}
+
+          <div
+            className="
+            relative
+            overflow-hidden
+            rounded-[1.5rem]
+            border
+            border-white/10
+            transition-all
+            duration-500
+            group-hover:scale-[1.02]
+            "
+          >
+
+          <ProjectPreview
+            title={title}
+            status={status}
+            tech={tech}
+            image={image}
+          />
+
+        </div>
+
+
+
+
+        {/* content */}
+
+        <div className="mt-7">
+
+
+          <h3
+            className="
+            text-2xl
+            font-semibold
+            tracking-tight
+            text-white
+            transition
+            group-hover:text-violet-200
+            "
+          >
+            {title}
+          </h3>
+
+
+
+          <p
+            className="
+            mt-4
+            leading-7
+            text-zinc-400
+            "
+          >
+            {description}
+          </p>
+
+
+
+
+          {/* tech */}
+
+          <div className="mt-6 flex flex-wrap gap-2">
+
+            {tech.map((item)=>(
+              <span
+                key={item}
+                className="
+                rounded-full
+                border border-white/10
+                bg-black/30
+                px-3 py-1
+                text-xs
+                text-zinc-300
+                transition
+                hover:border-violet-400/40
+                hover:text-white
+                "
+              >
+                {item}
+              </span>
+            ))}
+
+          </div>
+
+
+
+
+          {/* action */}
+
+          <div
+            className="
+            mt-7
+            flex
+            flex-wrap
+            items-center
+            gap-5
+            "
+          >
+
+            <Link
+              href={`/projects/${slug}`}
+              className="
+              text-sm
+              font-semibold
+              text-violet-300
+              transition
+              hover:text-violet-200
+              "
+            >
+              Case Study →
+            </Link>
+
+
+
+            {hasDemo && (
+              <a
+                href={link}
+                target="_blank"
+                rel="noreferrer noopener"
+                className="
+                text-sm
+                text-zinc-400
+                transition
+                hover:text-white
+                "
+              >
+                Live Demo ↗
+              </a>
+            )}
+
+
+
+            {hasRepo && (
+              <a
+                href={repo}
+                target="_blank"
+                rel="noreferrer noopener"
+                className="
+                text-sm
+                text-zinc-400
+                transition
+                hover:text-white
+                "
+              >
+                GitHub ↗
+              </a>
+            )}
+
+          </div>
+
+
+
+        </div>
+
+
       </div>
+
+
     </article>
   );
 }
