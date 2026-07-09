@@ -32,7 +32,6 @@ export async function generateMetadata({
 }: ProjectDetailPageProps): Promise<Metadata> {
 
   const { slug } = await params;
-
   const project = getProjectBySlug(slug);
 
   if (!project) {
@@ -71,7 +70,7 @@ export default async function ProjectDetailPage({
   return (
     <SiteShell>
 
-      <section className="relative pb-20 pt-32">
+      <section className="relative pb-16 pt-24 sm:pb-20 sm:pt-32">
 
         <div
           className="
@@ -101,10 +100,11 @@ export default async function ProjectDetailPage({
             </Link>
 
 
-            <div className="mt-10 max-w-5xl">
+            <div className="mt-8 max-w-5xl sm:mt-10">
 
               <span
                 className="
+                inline-flex
                 rounded-full
                 border
                 border-white/10
@@ -121,9 +121,10 @@ export default async function ProjectDetailPage({
 
               <h1
                 className="
-                mt-6
-                text-4xl
+                mt-5
+                text-3xl
                 font-bold
+                leading-tight
                 tracking-tight
                 text-white
                 sm:text-6xl
@@ -135,17 +136,20 @@ export default async function ProjectDetailPage({
 
               <p
                 className="
-                mt-6
-                text-lg
-                leading-8
+                mt-5
+                text-base
+                leading-7
                 text-zinc-400
+                sm:mt-6
+                sm:text-lg
+                sm:leading-8
                 "
               >
                 {project.longDescription}
               </p>
 
 
-              <div className="mt-8 flex flex-wrap gap-3">
+              <div className="mt-6 flex flex-wrap gap-2 sm:mt-8">
 
                 {project.tech.map((item) => (
 
@@ -156,10 +160,13 @@ export default async function ProjectDetailPage({
                     border
                     border-white/10
                     bg-black/30
-                    px-4
-                    py-2
-                    text-sm
+                    px-3
+                    py-1.5
+                    text-xs
                     text-zinc-300
+                    sm:px-4
+                    sm:py-2
+                    sm:text-sm
                     "
                   >
                     {item}
@@ -170,7 +177,7 @@ export default async function ProjectDetailPage({
               </div>
 
 
-              <div className="mt-10 flex flex-wrap gap-4">
+              <div className="mt-8 flex flex-wrap gap-3 sm:mt-10">
 
                 {hasDemo && (
 
@@ -181,8 +188,8 @@ export default async function ProjectDetailPage({
                     className="
                     rounded-full
                     bg-violet-400
-                    px-6
-                    py-3
+                    px-5
+                    py-2.5
                     text-sm
                     font-semibold
                     text-black
@@ -206,8 +213,8 @@ export default async function ProjectDetailPage({
                     rounded-full
                     border
                     border-white/15
-                    px-6
-                    py-3
+                    px-5
+                    py-2.5
                     text-sm
                     font-semibold
                     text-white
@@ -233,7 +240,7 @@ export default async function ProjectDetailPage({
 
       {/* MAIN IMAGE */}
 
-      <section className="pb-16">
+      <section className="pb-12 sm:pb-16">
 
         <Container>
 
@@ -244,26 +251,34 @@ export default async function ProjectDetailPage({
               <div
                 className="
                 overflow-hidden
-                rounded-[2rem]
+                rounded-3xl
                 border
                 border-white/10
+                bg-black
+                sm:rounded-[2rem]
                 "
               >
 
-                <div className="relative aspect-video">
+                <div
+                  className="
+                  relative
+                  aspect-[16/10]
+                  sm:aspect-video
+                  "
+                >
 
                   <Image
                     src={project.image}
                     alt={project.title}
                     fill
-                    sizes="100vw"
-                    priority
+                    sizes="(max-width: 768px) 100vw, 900px"
                     className="
-                    object-cover
+                    object-contain
                     transition
                     duration-700
                     hover:scale-105
                     "
+                    priority
                   />
 
                 </div>
@@ -277,43 +292,35 @@ export default async function ProjectDetailPage({
         </Container>
 
       </section>
+            {/* PROJECT INFORMATION */}
 
-
-      {/* PROJECT INFORMATION */}
-
-      <section className="pb-20">
+      <section className="pb-14 sm:pb-20">
 
         <Container>
 
-          <div className="grid gap-6 lg:grid-cols-3">
+          <div className="grid gap-5 lg:grid-cols-3">
 
             <Reveal>
-
               <InfoBlock
                 title="Project Overview"
                 description={project.overview}
               />
-
             </Reveal>
 
 
             <Reveal delay={120}>
-
               <InfoBlock
                 title="My Role"
                 description={project.role}
               />
-
             </Reveal>
 
 
             <Reveal delay={240}>
-
               <ListBlock
                 title="Technical Implementation"
                 items={project.implementation}
               />
-
             </Reveal>
 
           </div>
@@ -323,11 +330,12 @@ export default async function ProjectDetailPage({
       </section>
 
 
+
       {/* GALLERY */}
 
       {project.images && project.images.length > 1 && (
 
-        <section className="pb-20">
+        <section className="pb-14 sm:pb-20">
 
           <Container>
 
@@ -335,17 +343,18 @@ export default async function ProjectDetailPage({
 
               <h2
                 className="
-                mb-6
+                mb-5
                 text-2xl
                 font-semibold
                 text-white
+                sm:mb-6
                 "
               >
                 Project Gallery
               </h2>
 
 
-              <div className="grid gap-6 md:grid-cols-2">
+              <div className="grid gap-5 md:grid-cols-2">
 
                 {project.images.map((image) => (
 
@@ -356,17 +365,24 @@ export default async function ProjectDetailPage({
                     rounded-3xl
                     border
                     border-white/10
+                    bg-black
                     "
                   >
 
-                    <div className="relative aspect-video">
+                    <div
+                      className="
+                      relative
+                      aspect-[16/10]
+                      "
+                    >
 
                       <Image
                         src={image}
                         alt={project.title}
                         fill
+                        sizes="(max-width:768px) 100vw, 50vw"
                         className="
-                        object-cover
+                        object-contain
                         transition
                         duration-500
                         hover:scale-105
@@ -388,13 +404,16 @@ export default async function ProjectDetailPage({
         </section>
 
       )}
-      {/* FEATURES, CHALLENGES, LEARNING */}
+
+
+
+      {/* FEATURES */}
 
       <section className="pb-20">
 
         <Container>
 
-          <div className="grid gap-6 lg:grid-cols-3">
+          <div className="grid gap-5 lg:grid-cols-3">
 
             <DetailBlock
               title="Main Features"
@@ -440,7 +459,6 @@ function DetailBlock({
 }: DetailBlockProps) {
 
   return (
-
     <div
       className="
       h-full
@@ -448,17 +466,12 @@ function DetailBlock({
       border
       border-white/10
       bg-white/[0.03]
-      p-6
+      p-5
+      sm:p-6
       "
     >
 
-      <h2
-        className="
-        text-xl
-        font-semibold
-        text-white
-        "
-      >
+      <h2 className="text-xl font-semibold text-white">
         {title}
       </h2>
 
@@ -500,9 +513,7 @@ function DetailBlock({
       </ul>
 
     </div>
-
   );
-
 }
 
 
@@ -521,7 +532,6 @@ function InfoBlock({
 }: InfoBlockProps) {
 
   return (
-
     <div
       className="
       h-full
@@ -529,17 +539,12 @@ function InfoBlock({
       border
       border-white/10
       bg-white/[0.03]
-      p-6
+      p-5
+      sm:p-6
       "
     >
 
-      <h2
-        className="
-        text-xl
-        font-semibold
-        text-white
-        "
-      >
+      <h2 className="text-xl font-semibold text-white">
         {title}
       </h2>
 
@@ -556,9 +561,7 @@ function InfoBlock({
       </p>
 
     </div>
-
   );
-
 }
 
 
@@ -577,7 +580,6 @@ function ListBlock({
 }: ListBlockProps) {
 
   return (
-
     <div
       className="
       h-full
@@ -585,17 +587,12 @@ function ListBlock({
       border
       border-white/10
       bg-white/[0.03]
-      p-6
+      p-5
+      sm:p-6
       "
     >
 
-      <h2
-        className="
-        text-xl
-        font-semibold
-        text-white
-        "
-      >
+      <h2 className="text-xl font-semibold text-white">
         {title}
       </h2>
 
@@ -637,7 +634,5 @@ function ListBlock({
       </ul>
 
     </div>
-
   );
-
 }

@@ -17,6 +17,10 @@ export const metadata: Metadata = {
   description:
     "Portfolio website Kadek Dwiyana Pernanda. Web Developer yang membangun modern website, full-stack application, dan technology integration.",
 
+  icons: {
+    icon: "/icon.png",
+  },
+
   keywords: [
     profile.name,
     "Web Developer",
