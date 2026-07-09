@@ -6,6 +6,7 @@ import TypingRole from "@/components/TypingRole";
 import JourneySection from "@/components/JourneySection";
 import ContactForm from "@/components/ContactForm";
 import SiteShell from "@/components/SiteShell";
+import HeroVisual from "@/components/HeroVisual";
 import {
   heroRoles,
   profile,
@@ -69,6 +70,8 @@ export default function HomePage() {
                 Download CV
               </a>
             </div>
+
+            <HeroVisual />
 
             <div className="mt-14 grid gap-4 sm:grid-cols-3">
               {stats.map((item, index) => (
