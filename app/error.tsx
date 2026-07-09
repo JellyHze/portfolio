@@ -1,6 +1,8 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect } from "react";
+
 import Container from "@/components/Container";
 
 type ErrorPageProps = {
@@ -33,19 +35,18 @@ export default function ErrorPage({ error, reset }: ErrorPageProps) {
 
             <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
               <button
-                type="button"
                 onClick={reset}
                 className="rounded-full bg-violet-400 px-6 py-3 text-sm font-semibold text-black transition hover:bg-violet-300"
               >
                 Coba Lagi
               </button>
 
-              <a
+              <Link
                 href="/"
                 className="rounded-full border border-white/15 px-6 py-3 text-sm font-semibold text-white transition hover:border-violet-400"
               >
                 Kembali ke Home
-              </a>
+              </Link>
             </div>
           </div>
         </Container>

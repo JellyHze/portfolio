@@ -3,7 +3,9 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+
 import { profile } from "@/data/portfolio";
+
 
 const navItems = [
   { label: "Home", href: "/#home", id: "home" },
@@ -14,58 +16,72 @@ const navItems = [
   { label: "Contact", href: "/#contact", id: "contact" },
 ];
 
+
 export default function Navbar() {
   const pathname = usePathname();
-  const [isOpen, setIsOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState("home");
-
   const isHomePage = pathname === "/";
+
+  const [isOpen, setIsOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState(
+    isHomePage ? "home" : ""
+  );
+
 
   const closeMenu = () => {
     setIsOpen(false);
   };
 
+
   useEffect(() => {
-    if (!isHomePage) {
-      setActiveSection("");
-      return;
-    }
+    if (!isHomePage) return;
+
 
     const sections = navItems
       .map((item) => document.getElementById(item.id))
       .filter(Boolean) as HTMLElement[];
 
-    if (sections.length === 0) return;
+
+    if (!sections.length) return;
+
 
     const observer = new IntersectionObserver(
       (entries) => {
-        const visibleSections = entries
+        const visible = entries
           .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+          .sort(
+            (a, b) =>
+              b.intersectionRatio - a.intersectionRatio
+          );
 
-        const mostVisibleSection = visibleSections[0];
 
-        if (mostVisibleSection?.target.id) {
-          setActiveSection(mostVisibleSection.target.id);
+        const current = visible[0]?.target.id;
+
+
+        if (current) {
+          setActiveSection(current);
         }
       },
       {
-        root: null,
         rootMargin: "-25% 0px -55% 0px",
         threshold: [0.1, 0.25, 0.5, 0.75],
       }
     );
 
-    sections.forEach((section) => observer.observe(section));
 
-    return () => {
-      observer.disconnect();
-    };
+    sections.forEach((section) => {
+      observer.observe(section);
+    });
+
+
+    return () => observer.disconnect();
+
   }, [isHomePage]);
+
 
   return (
     <header className="fixed left-0 top-0 z-50 w-full border-b border-white/10 bg-black/50 backdrop-blur-xl">
       <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 sm:px-6 lg:px-8">
+
         <Link
           href="/#home"
           onClick={closeMenu}
@@ -74,9 +90,10 @@ export default function Navbar() {
           {profile.name}
         </Link>
 
+
         <div className="hidden items-center gap-2 md:flex">
           {navItems.map((item) => {
-            const isActive = activeSection === item.id;
+            const active = activeSection === item.id;
 
             return (
               <Link
@@ -84,7 +101,7 @@ export default function Navbar() {
                 href={item.href}
                 className={[
                   "rounded-full px-4 py-2 text-sm transition",
-                  isActive
+                  active
                     ? "bg-white/10 text-white"
                     : "text-zinc-400 hover:bg-white/5 hover:text-white",
                 ].join(" ")}
@@ -95,6 +112,7 @@ export default function Navbar() {
           })}
         </div>
 
+
         <a
           href={`mailto:${profile.email}`}
           className="hidden rounded-full border border-white/15 px-4 py-2 text-sm font-medium text-white transition hover:border-violet-400 hover:bg-violet-400/10 md:inline-flex"
@@ -102,39 +120,38 @@ export default function Navbar() {
           Hire Me
         </a>
 
+
         <button
           type="button"
-          aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
+          aria-label={isOpen ? "Close menu" : "Open menu"}
           aria-expanded={isOpen}
-          onClick={() => setIsOpen((current) => !current)}
+          onClick={() => setIsOpen((value) => !value)}
           className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/10 text-white transition hover:border-violet-400 hover:bg-white/5 md:hidden"
         >
-          <span className="text-xl leading-none">{isOpen ? "×" : "☰"}</span>
+          <span className="text-xl">
+            {isOpen ? "×" : "☰"}
+          </span>
         </button>
+
       </nav>
 
-      {isOpen ? (
-        <div className="border-t border-white/10 bg-black/90 px-5 py-4 backdrop-blur-xl md:hidden">
-          <div className="mx-auto flex max-w-6xl flex-col gap-2">
-            {navItems.map((item) => {
-              const isActive = activeSection === item.id;
 
-              return (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  onClick={closeMenu}
-                  className={[
-                    "rounded-2xl px-4 py-3 text-sm transition",
-                    isActive
-                      ? "bg-white/10 text-white"
-                      : "text-zinc-300 hover:bg-white/5 hover:text-white",
-                  ].join(" ")}
-                >
-                  {item.label}
-                </Link>
-              );
-            })}
+      {isOpen && (
+        <div className="border-t border-white/10 bg-black/90 px-5 py-4 backdrop-blur-xl md:hidden">
+
+          <div className="mx-auto flex max-w-6xl flex-col gap-2">
+
+            {navItems.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                onClick={closeMenu}
+                className="rounded-2xl px-4 py-3 text-sm text-zinc-300 transition hover:bg-white/5 hover:text-white"
+              >
+                {item.label}
+              </Link>
+            ))}
+
 
             <a
               href={`mailto:${profile.email}`}
@@ -143,9 +160,12 @@ export default function Navbar() {
             >
               Hire Me
             </a>
+
           </div>
+
         </div>
-      ) : null}
+      )}
+
     </header>
   );
 }

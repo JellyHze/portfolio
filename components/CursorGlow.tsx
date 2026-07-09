@@ -5,40 +5,45 @@ import { useEffect, useState } from "react";
 export default function CursorGlow() {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [isVisible, setIsVisible] = useState(false);
-  const [isEnabled, setIsEnabled] = useState(false);
+
+  const isSupported =
+    typeof window !== "undefined" &&
+    window.matchMedia("(pointer: fine)").matches &&
+    !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
 
   useEffect(() => {
-    const hasFinePointer = window.matchMedia("(pointer: fine)").matches;
-    const reduceMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
-    ).matches;
-
-    if (!hasFinePointer || reduceMotion) return;
-
-    setIsEnabled(true);
+    if (!isSupported) return;
 
     const handlePointerMove = (event: PointerEvent) => {
       setPosition({
         x: event.clientX,
         y: event.clientY,
       });
+
       setIsVisible(true);
     };
+
 
     const handlePointerLeave = () => {
       setIsVisible(false);
     };
 
+
     window.addEventListener("pointermove", handlePointerMove);
     window.addEventListener("pointerleave", handlePointerLeave);
+
 
     return () => {
       window.removeEventListener("pointermove", handlePointerMove);
       window.removeEventListener("pointerleave", handlePointerLeave);
     };
-  }, []);
 
-  if (!isEnabled) return null;
+  }, [isSupported]);
+
+
+  if (!isSupported) return null;
+
 
   return (
     <div
