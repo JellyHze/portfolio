@@ -1,6 +1,5 @@
 import Container from "@/components/Container";
 import Footer from "@/components/Footer";
-import InfoCard from "@/components/InfoCard";
 import Navbar from "@/components/Navbar";
 import ProjectCard from "@/components/ProjectCard";
 import Reveal from "@/components/Reveal";
@@ -8,9 +7,8 @@ import SectionHeading from "@/components/SectionHeading";
 import CursorGlow from "@/components/CursorGlow";
 import ScrollProgress from "@/components/ScrollProgress";
 import TypingRole from "@/components/TypingRole";
+import JourneySection from "@/components/JourneySection";
 import {
-  education,
-  experiences,
   heroRoles,
   profile,
   projects,
@@ -180,53 +178,7 @@ export default function HomePage() {
         </Container>
       </section>
 
-      <section id="experience" className="py-24">
-        <Container>
-          <Reveal>
-            <SectionHeading
-              eyebrow="Journey"
-              title="Pengalaman dan pendidikan."
-              description="Bagian ini membantu pengunjung memahami proses belajar, pengalaman, dan latar belakang kamu."
-            />
-          </Reveal>
-
-          <div className="grid gap-6 lg:grid-cols-2">
-            <div className="space-y-6">
-              <Reveal>
-                <h3 className="text-xl font-semibold text-white">Experience</h3>
-              </Reveal>
-
-              {experiences.map((item, index) => (
-                <Reveal key={`${item.role}-${item.company}`} delay={index * 120}>
-                  <InfoCard
-                    title={item.role}
-                    subtitle={item.company}
-                    period={item.period}
-                    description={item.description}
-                  />
-                </Reveal>
-              ))}
-            </div>
-
-            <div className="space-y-6">
-              <Reveal>
-                <h3 className="text-xl font-semibold text-white">Education</h3>
-              </Reveal>
-
-              {education.map((item, index) => (
-                <Reveal key={`${item.school}-${item.major}`} delay={index * 120}>
-                  <InfoCard
-                    title={item.school}
-                    subtitle={item.major}
-                    period={item.period}
-                    description={item.description}
-                  />
-                </Reveal>
-              ))}
-            </div>
-          </div>
-        </Container>
-      </section>
+      <JourneySection />
 
       <section id="contact" className="py-24">
         <Container>
