@@ -51,7 +51,7 @@ export default function Navbar() {
 
         <button
           type="button"
-          aria-label="Toggle navigation menu"
+          aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
           aria-expanded={isOpen}
           onClick={() => setIsOpen((current) => !current)}
           className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/10 text-white transition hover:border-violet-400 hover:bg-white/5 md:hidden"
