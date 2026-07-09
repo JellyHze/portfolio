@@ -1,17 +1,16 @@
 export const profile = {
-  name: "Nama Kamu",
-  role: "Frontend Developer",
+  name: "Kadek Dwiyana Pernanda",
+  role: "Full-Stack Developer",
   location: "Indonesia",
-  email: "emailkamu@example.com",
-  github: "https://github.com/usernamekamu",
-  linkedin: "https://linkedin.com/in/usernamekamu",
-  instagram: "https://instagram.com/usernamekamu",
+  email: "kadekpernanda@gmail.com",
+  github: "https://github.com/JellyHze",
+  instagram: "https://instagram.com/kadekpernanda",
 
   tagline:
-    "Membangun website modern, responsif, cepat, dan mudah digunakan.",
+    "Saya membangun website modern, responsif, cepat, dan mudah digunakan dengan Next.js, React, TypeScript, dan Tailwind CSS.",
 
   description:
-    "Saya adalah pengembang web yang tertarik pada pembuatan website modern menggunakan Next.js, React, TypeScript, dan Tailwind CSS. Saya fokus membangun tampilan yang rapi, user-friendly, maintainable, serta mudah dikembangkan.",
+    "Saya adalah Frontend Developer yang memiliki ketertarikan pada pengembangan website modern, bersih, responsif, dan mudah dikembangkan. Saya fokus membangun antarmuka yang nyaman digunakan, memiliki struktur kode yang rapi, serta memperhatikan performa, maintainability, dan pengalaman pengguna.",
 
   resumeUrl: "#",
 };
@@ -53,7 +52,7 @@ export const projects = [
       "Website portfolio pribadi dengan desain modern, dark mode, responsive layout, dan struktur kode yang mudah dikembangkan.",
     tech: ["Next.js", "TypeScript", "Tailwind CSS"],
     link: "#",
-    repo: "#",
+    repo: "https://github.com/JellyHze/portfolio",
     status: "Featured",
   },
   {
@@ -80,14 +79,14 @@ export const experiences = [
   {
     role: "Frontend Developer",
     company: "Personal Project",
-    period: "2026 - Present",
+    period: "2018 - Present",
     description:
       "Membangun beberapa project berbasis web menggunakan Next.js, React, TypeScript, dan Tailwind CSS.",
   },
   {
     role: "Web Development Learner",
     company: "Independent Learning",
-    period: "2025 - Present",
+    period: "2021 - Present",
     description:
       "Mempelajari dasar-dasar pengembangan website, version control menggunakan Git, dan deployment berbasis GitHub.",
   },
@@ -95,9 +94,9 @@ export const experiences = [
 
 export const education = [
   {
-    school: "Nama Kampus / Sekolah Kamu",
-    major: "Program Studi / Jurusan Kamu",
-    period: "Tahun Masuk - Sekarang",
+    school: "Politeknik Negeri Bali",
+    major: "Diploma IV Teknologi Rekayasa Perangkat Lunak",
+    period: "2021 - 2025",
     description:
       "Fokus pada pengembangan skill teknologi, pemrograman web, dan pembuatan project digital.",
   },

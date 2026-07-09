@@ -246,15 +246,6 @@ export default function HomePage() {
                 >
                   GitHub
                 </a>
-
-                <a
-                  href={profile.linkedin}
-                  target="_blank"
-                  rel="noreferrer noopener"
-                  className="rounded-full border border-white/15 px-6 py-3 text-sm font-semibold text-white transition hover:border-violet-400"
-                >
-                  LinkedIn
-                </a>
               </div>
             </div>
           </Reveal>

@@ -6,10 +6,6 @@ const socialLinks = [
     href: profile.github,
   },
   {
-    label: "LinkedIn",
-    href: profile.linkedin,
-  },
-  {
     label: "Instagram",
     href: profile.instagram,
   },
