@@ -2,146 +2,289 @@ import type { Project } from "@/types/portfolio";
 
 export const profile = {
   name: "Kadek Dwiyana Pernanda",
-  role: "Frontend Developer",
+
+  role: "Web Developer",
+
   location: "Indonesia",
+
   email: "kadekpernanda@gmail.com",
+
   github: "https://github.com/JellyHze",
+
   instagram: "https://instagram.com/kadekpernanda",
 
+
   tagline:
-    "Saya membangun website modern, responsif, cepat, dan mudah digunakan dengan Next.js, React, TypeScript, dan Tailwind CSS.",
+    "Saya membangun website modern dan sistem digital dengan fokus pada frontend engineering, full-stack development, serta integrasi teknologi.",
+
 
   description:
-    "Saya adalah Frontend Developer yang memiliki ketertarikan pada pengembangan website modern, bersih, responsif, dan mudah dikembangkan. Saya fokus membangun antarmuka yang nyaman digunakan, memiliki struktur kode yang rapi, serta memperhatikan performa, maintainability, dan pengalaman pengguna.",
+    "Saya adalah Web Developer yang memiliki pengalaman dalam membangun website modern, sistem informasi, dan aplikasi berbasis teknologi. Saya berfokus pada pembuatan antarmuka yang nyaman digunakan, struktur kode yang rapi, performa yang baik, serta integrasi backend dan teknologi machine learning.",
+
 
   resumeUrl: "/cv.pdf",
 };
 
 export const heroRoles = [
-  "Frontend Developer",
-  "Next.js Developer",
   "Web Developer",
-  "UI Enthusiast",
+  "Frontend Engineer",
+  "Full-Stack Developer",
+  "Machine Learning Integration",
 ];
 
 export const stats = [
   {
-    value: "5+",
-    label: "Project Practice",
+    value: 3,
+    suffix: "+",
+    label: "Major Projects",
+    description:
+      "Project website dan sistem yang dikembangkan",
   },
+
   {
-    value: "3+",
-    label: "Tech Stack",
+    value: 8,
+    suffix: "+",
+    label: "Technologies",
+    description:
+      "Frontend, backend, dan machine learning tools",
   },
+
   {
-    value: "100%",
-    label: "Responsive",
+    value: 100,
+    suffix: "%",
+    label: "Development Focus",
+    description:
+      "Clean code, maintainability, dan user experience",
   },
 ];
 
 export const skills = [
   {
-    category: "Frontend",
-    items: ["HTML", "CSS", "JavaScript", "TypeScript", "React", "Next.js"],
+    category: "Frontend Engineering",
+    items: [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "TypeScript",
+      "React",
+      "Next.js",
+      "Tailwind CSS",
+    ],
   },
+
   {
-    category: "Styling",
-    items: ["Tailwind CSS", "Responsive Design", "UI Design"],
+    category: "Backend Development",
+    items: [
+      "PHP",
+      "Laravel",
+      "CodeIgniter",
+      "REST API",
+      "Database",
+    ],
   },
+
   {
-    category: "Tools",
-    items: ["Git", "GitHub", "VS Code", "NPM"],
+    category: "Integration & Tools",
+    items: [
+      "Python",
+      "Flask API",
+      "Git",
+      "GitHub",
+      "VS Code",
+      "NPM",
+    ],
   },
 ];
 
 export const projects: Project[] = [
+
   {
     title: "Personal Portfolio Website",
+
     slug: "personal-portfolio",
+
     description:
-      "Website portfolio pribadi yang dibangun menggunakan Next.js, TypeScript, dan Tailwind CSS.",
+      "Website portfolio modern untuk menampilkan profil, pengalaman, skill, dan project menggunakan teknologi frontend terbaru.",
+
+
     longDescription:
-      "Personal Portfolio Website adalah project portfolio pribadi yang dibuat untuk menampilkan profil, skill, pengalaman, pendidikan, project, dan kontak dalam satu website yang modern, responsif, dan mudah dikembangkan. Project ini dirancang dengan pendekatan component-based agar struktur kode lebih rapi dan mudah dirawat.",
+      "Personal Portfolio Website merupakan website pribadi yang dirancang sebagai media profesional untuk memperkenalkan kemampuan, pengalaman, dan project yang telah dibuat. Website ini menggunakan pendekatan component-based agar struktur kode mudah dikembangkan dan dipelihara.",
+
+
     image:"",
-    tech: ["Next.js", "TypeScript", "Tailwind CSS"],
-    link: "#",
-    repo: "#",
-    status: "Featured",
-    features: [
-      "Responsive layout untuk desktop dan mobile",
-      "Dark mode design dengan gradient dan glow effect",
-      "Reusable components agar mudah dikembangkan",
-      "Project preview card dengan tampilan mockup browser",
-      "SEO metadata dasar untuk kebutuhan portfolio",
+
+
+    tech:[
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS"
     ],
-    challenges: [
-      "Membuat struktur folder yang rapi dan mudah dirawat",
-      "Menjaga tampilan tetap modern tanpa membuat website terlalu berat",
-      "Membuat komponen yang reusable dan konsisten",
+
+
+    link:"#",
+
+    repo:"#",
+
+    status:"Frontend Engineering",
+
+
+    features:[
+      "Modern responsive interface",
+      "Reusable component architecture",
+      "Interactive animation",
+      "SEO metadata implementation",
+      "Dark futuristic design"
     ],
-    learnings: [
-      "Memahami struktur Next.js App Router",
-      "Membuat UI dengan Tailwind CSS",
-      "Memisahkan data dan tampilan agar project maintainable",
-      "Menjalankan build check sebelum push atau deploy",
+
+
+    challenges:[
+      "Membuat struktur project yang scalable",
+      "Menjaga performa website tetap ringan",
+      "Membangun UI yang modern tetapi mudah digunakan"
     ],
+
+
+    learnings:[
+      "Next.js App Router",
+      "Component based development",
+      "TypeScript implementation",
+      "Frontend architecture"
+    ]
+
   },
+
+
+
   {
-    title: "Modern Landing Page",
-    slug: "modern-landing-page",
+    title:"Hotel Reservation System",
+
+    slug:"hotel-reservation-system",
+
+
     description:
-      "Landing page modern dengan tampilan clean, responsive layout, dan fokus pada penyampaian informasi secara jelas.",
+      "Sistem reservasi hotel berbasis web dengan fitur registrasi user, pemesanan kamar, manajemen pembayaran, dan cetak bukti reservasi.",
+
+
+
     longDescription:
-      "Modern Landing Page adalah konsep halaman promosi digital yang dirancang untuk menampilkan informasi produk, jasa, atau personal branding secara singkat, jelas, dan menarik. Fokus utama project ini adalah membuat tampilan yang rapi, cepat dipahami, dan nyaman diakses dari berbagai perangkat.",
+      "Hotel Reservation System merupakan aplikasi berbasis web yang dibuat untuk mengelola proses reservasi hotel mulai dari pembuatan akun user, pemesanan kamar, proses pembayaran melalui validasi staff, hingga pencetakan resi reservasi. Sistem ini menerapkan konsep role user dan staff untuk mengatur alur kerja aplikasi.",
+
+
+
     image:"",
-    tech: ["React", "Tailwind CSS"],
-    link: "#",
-    repo: "#",
-    status: "Practice",
-    features: [
-      "Hero section yang jelas dan menarik",
-      "Responsive section layout",
-      "CTA button untuk mendorong interaksi user",
-      "Struktur komponen yang sederhana dan mudah dikembangkan",
+
+
+    tech:[
+      "PHP",
+      "CodeIgniter",
+      "HTML",
+      "CSS",
+      "Database"
     ],
-    challenges: [
-      "Membuat tampilan tetap sederhana tetapi terlihat profesional",
-      "Menentukan hierarki visual agar informasi mudah dibaca",
+
+
+    link:"#",
+
+    repo:"#",
+
+    status:"Full Stack",
+
+
+
+    features:[
+      "User authentication",
+      "Hotel room reservation",
+      "Staff payment validation",
+      "Reservation status management",
+      "Receipt printing"
     ],
-    learnings: [
-      "Membuat layout landing page",
-      "Mengatur spacing, typography, dan responsive design",
-      "Membuat desain yang fokus pada kebutuhan user",
+
+
+
+    challenges:[
+      "Membuat alur reservasi yang sesuai kebutuhan bisnis",
+      "Mengatur hak akses user dan staff",
+      "Mengelola data transaksi reservasi"
     ],
+
+
+
+    learnings:[
+      "Backend web development",
+      "Database management",
+      "Business process implementation",
+      "Role based system"
+    ]
+
   },
+
+
+
+
   {
-    title: "Dashboard UI Concept",
-    slug: "dashboard-ui-concept",
+    title:"Heart Valve Leakage Detection System",
+
+    slug:"heart-valve-leakage-detection",
+
+
     description:
-      "Konsep tampilan dashboard sederhana dengan card statistik, layout responsif, dan struktur komponen yang mudah digunakan kembali.",
+      "Sistem deteksi kebocoran katup jantung menggunakan pendekatan data mining dengan integrasi Laravel, Python, dan Flask API.",
+
+
+
     longDescription:
-      "Dashboard UI Concept adalah eksplorasi tampilan dashboard untuk menampilkan data secara ringkas melalui card statistik, section informasi, dan layout yang responsif. Project ini berfokus pada pembuatan UI yang bersih, informatif, dan mudah dikembangkan menjadi aplikasi yang lebih kompleks.",
-    image: "",
-    tech: ["Next.js", "Tailwind CSS"],
-    link: "#",
-    repo: "#",
-    status: "Practice",
-    features: [
-      "Card statistik",
-      "Layout responsif",
-      "Komponen UI reusable",
-      "Tampilan dark dashboard modern",
+      "Heart Valve Leakage Detection System merupakan aplikasi berbasis web yang mengintegrasikan Laravel sebagai platform utama dengan Python melalui Flask API untuk menjalankan proses analisis menggunakan metode data mining. Sistem ini dibuat untuk membantu proses prediksi berdasarkan data yang diberikan pengguna.",
+
+
+
+    image:"",
+
+
+    tech:[
+      "Laravel",
+      "Python",
+      "Flask API",
+      "Data Mining"
     ],
-    challenges: [
-      "Membuat informasi terlihat padat tetapi tetap mudah dibaca",
-      "Menjaga konsistensi spacing dan ukuran komponen",
+
+
+
+    link:"#",
+
+    repo:"#",
+
+    status:"Machine Learning Integration",
+
+
+
+
+    features:[
+      "Laravel web interface",
+      "Python data processing",
+      "Flask API integration",
+      "Prediction result display",
+      "Machine learning workflow"
     ],
-    learnings: [
-      "Mendesain dashboard sederhana",
-      "Membuat struktur card dan layout grid",
-      "Menjaga konsistensi UI dengan Tailwind CSS",
+
+
+
+    challenges:[
+      "Menghubungkan Laravel dengan Python",
+      "Membangun komunikasi API",
+      "Mengintegrasikan model analisis ke website"
     ],
-  },
+
+
+
+    learnings:[
+      "API integration",
+      "Machine learning implementation",
+      "Backend communication",
+      "System integration"
+    ]
+
+  }
+
 ];
 
 export function getProjectBySlug(slug: string) {
@@ -150,18 +293,21 @@ export function getProjectBySlug(slug: string) {
 
 export const experiences = [
   {
-    role: "Frontend Developer",
-    company: "Personal Project",
+    role: "Web Developer",
+    company: "Personal Projects",
     period: "2018 - Present",
+
     description:
-      "Membangun beberapa project berbasis web menggunakan Next.js, React, TypeScript, dan Tailwind CSS.",
+      "Mengembangkan berbagai aplikasi web menggunakan teknologi frontend modern, backend framework, database, serta integrasi API untuk menghasilkan sistem digital yang fungsional.",
   },
+
   {
-    role: "Web Development Learner",
+    role: "Full-Stack Development Learner",
     company: "Independent Learning",
     period: "2021 - Present",
+
     description:
-      "Mempelajari dasar-dasar pengembangan website, version control menggunakan Git, dan deployment berbasis GitHub.",
+      "Mempelajari pengembangan aplikasi web secara end-to-end mulai dari pembuatan interface, backend logic, database management, deployment, hingga integrasi teknologi machine learning.",
   },
 ];
 
@@ -177,18 +323,23 @@ export const education = [
 
 export const services = [
   {
-    title: "Website Portfolio",
+    title: "Modern Website Development",
+
     description:
-      "Membuat website portfolio personal yang modern, responsif, dan mudah dikembangkan.",
+      "Membangun website modern dengan desain responsif, performa baik, dan struktur kode yang mudah dikembangkan.",
   },
+
   {
-    title: "Landing Page",
+    title: "Full-Stack Web System",
+
     description:
-      "Membuat landing page untuk promosi produk, personal branding, atau bisnis sederhana.",
+      "Mengembangkan sistem website lengkap mulai dari frontend, backend, database, hingga pengelolaan alur bisnis aplikasi.",
   },
+
   {
-    title: "Frontend UI",
+    title: "API & Technology Integration",
+
     description:
-      "Membangun tampilan website yang bersih, nyaman digunakan, dan mobile friendly.",
+      "Menghubungkan berbagai teknologi seperti API, backend service, dan machine learning agar dapat berjalan dalam satu sistem.",
   },
 ];

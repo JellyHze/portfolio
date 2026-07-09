@@ -29,7 +29,6 @@ const skills = [
   },
 ];
 
-
 const positions = [
   "left-4 top-8",
   "right-8 top-10",
@@ -44,9 +43,29 @@ export default function HeroVisual() {
 
   const [activeSkill, setActiveSkill] = useState(skills[0]);
   const [isHovered, setIsHovered] = useState(false);
+  const [isChanging, setIsChanging] = useState(false);
 
 
-  // Auto rotate skill
+
+  const changeSkill = (skill: typeof skills[number]) => {
+
+    if (skill.name === activeSkill.name) return;
+
+
+    setIsChanging(true);
+
+
+    setTimeout(() => {
+
+      setActiveSkill(skill);
+      setIsChanging(false);
+
+    }, 350);
+
+  };
+
+
+
   useEffect(() => {
 
     if (isHovered) return;
@@ -54,29 +73,28 @@ export default function HeroVisual() {
 
     const interval = setInterval(() => {
 
-      setActiveSkill((current) => {
 
-        const currentIndex = skills.findIndex(
-          (skill) => skill.name === current.name
-        );
-
-
-        const nextIndex =
-          (currentIndex + 1) % skills.length;
+      const currentIndex = skills.findIndex(
+        (skill) => skill.name === activeSkill.name
+      );
 
 
-        return skills[nextIndex];
+      const nextIndex =
+        (currentIndex + 1) % skills.length;
 
-      });
+
+      changeSkill(skills[nextIndex]);
 
 
     }, 2500);
 
 
+
     return () => clearInterval(interval);
 
 
-  }, [isHovered]);
+  }, [activeSkill, isHovered]);
+
 
 
 
@@ -134,6 +152,7 @@ export default function HeroVisual() {
           rounded-full
           transition-all
           duration-700
+          ease-out
           "
           style={{
             background: `
@@ -147,7 +166,7 @@ export default function HeroVisual() {
 
 
 
-        {/* Inner Circle */}
+        {/* Inner */}
 
         <div
           className="
@@ -164,13 +183,21 @@ export default function HeroVisual() {
           "
         >
 
+
           <div
-            key={activeSkill.name}
-            className="
+            className={`
             text-center
-            animate-pulse
-            "
+            transition-all
+            duration-500
+            ease-out
+            ${
+              isChanging
+                ? "scale-75 opacity-0 blur-sm"
+                : "scale-100 opacity-100 blur-0"
+            }
+            `}
           >
+
 
             <p
               className="
@@ -217,6 +244,7 @@ export default function HeroVisual() {
 
 
 
+
       {/* Floating Skill Badge */}
 
 
@@ -232,7 +260,7 @@ export default function HeroVisual() {
           onMouseEnter={() => {
 
             setIsHovered(true);
-            setActiveSkill(skill);
+            changeSkill(skill);
 
           }}
 
@@ -242,6 +270,7 @@ export default function HeroVisual() {
             setIsHovered(false);
 
           }}
+
 
 
           className={[
@@ -259,16 +288,16 @@ export default function HeroVisual() {
             text-zinc-200
             shadow-2xl
             backdrop-blur-xl
-            transition
+            transition-all
             duration-300
+            hover:scale-110
             hover:border-violet-400
             hover:bg-white/10
-            hover:scale-110
             `,
 
 
             activeSkill.name === skill.name
-              ? "border-violet-400 bg-white/10 scale-110"
+              ? "scale-110 border-violet-400 bg-white/10 shadow-[0_0_25px_rgba(167,139,250,0.5)]"
               : "",
 
 
@@ -281,9 +310,11 @@ export default function HeroVisual() {
           ].join(" ")}
 
 
+
           style={{
 
-            animationDelay: `${index * 350}ms`,
+            animationDelay:
+              `${index * 350}ms`,
 
           }}
 
@@ -302,4 +333,5 @@ export default function HeroVisual() {
     </div>
 
   );
+
 }

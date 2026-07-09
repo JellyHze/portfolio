@@ -50,8 +50,8 @@ export default function ProjectsSection() {
         <Reveal>
           <SectionHeading
             eyebrow="Selected Works"
-            title="Beberapa project pilihan."
-            description="Bagian ini bisa kamu isi dengan project asli dari GitHub, tugas kuliah, landing page, dashboard, atau aplikasi web yang pernah kamu buat."
+            title="Project yang pernah saya bangun."
+            description="Kumpulan project yang mencerminkan pengalaman saya dalam membangun website modern, sistem informasi, dan integrasi teknologi mulai dari frontend engineering, full-stack development, hingga machine learning."
           />
         </Reveal>
 
