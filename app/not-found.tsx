@@ -1,13 +1,16 @@
 import Link from "next/link";
 import Container from "@/components/Container";
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 export default function NotFoundPage() {
   return (
     <main className="min-h-screen bg-black text-white">
       <Navbar />
 
-      <section className="flex min-h-screen items-center pt-24">
+      <section className="relative flex min-h-screen items-center pt-24">
+        <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,_rgba(124,58,237,0.28),_transparent_35%)]" />
+
         <Container>
           <div className="mx-auto max-w-2xl text-center">
             <p className="text-sm font-medium uppercase tracking-[0.3em] text-violet-300">
@@ -23,15 +26,26 @@ export default function NotFoundPage() {
               atau URL-nya tidak sesuai.
             </p>
 
-            <Link
-              href="/"
-              className="mt-8 inline-flex rounded-full bg-violet-400 px-6 py-3 text-sm font-semibold text-black transition hover:bg-violet-300"
-            >
-              Kembali ke Home
-            </Link>
+            <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
+              <Link
+                href="/"
+                className="rounded-full bg-violet-400 px-6 py-3 text-sm font-semibold text-black transition hover:bg-violet-300"
+              >
+                Kembali ke Home
+              </Link>
+
+              <Link
+                href="/#projects"
+                className="rounded-full border border-white/15 px-6 py-3 text-sm font-semibold text-white transition hover:border-violet-400"
+              >
+                Lihat Project
+              </Link>
+            </div>
           </div>
         </Container>
       </section>
+
+      <Footer />
     </main>
   );
 }
