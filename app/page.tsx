@@ -8,6 +8,7 @@ import CursorGlow from "@/components/CursorGlow";
 import ScrollProgress from "@/components/ScrollProgress";
 import TypingRole from "@/components/TypingRole";
 import JourneySection from "@/components/JourneySection";
+import ContactForm from "@/components/ContactForm";
 import {
   heroRoles,
   profile,
@@ -183,46 +184,57 @@ export default function HomePage() {
       <section id="contact" className="py-24">
         <Container>
           <Reveal>
-            <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.04] p-8 text-center sm:p-12">
+            <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.04] p-8 sm:p-12">
               <div className="absolute left-1/2 top-0 -z-10 h-56 w-56 -translate-x-1/2 rounded-full bg-violet-500/20 blur-3xl" />
 
-              <p className="text-sm font-medium uppercase tracking-[0.3em] text-violet-300">
-                Contact
-              </p>
+              <div className="mx-auto max-w-3xl text-center">
+                <p className="text-sm font-medium uppercase tracking-[0.3em] text-violet-300">
+                  Contact
+                </p>
 
-              <h2 className="mt-4 text-3xl font-semibold text-white sm:text-5xl">
-                Mari bangun sesuatu yang keren.
-              </h2>
+                <h2 className="mt-4 text-3xl font-semibold text-white sm:text-5xl">
+                  Mari bangun sesuatu yang keren.
+                </h2>
 
-              <p className="mx-auto mt-5 max-w-2xl text-zinc-400">
-                Terbuka untuk kolaborasi, freelance project, internship, atau
-                diskusi seputar pengembangan website.
-              </p>
+                <p className="mx-auto mt-5 max-w-2xl text-zinc-400">
+                  Terbuka untuk kolaborasi, freelance project, internship, atau
+                  diskusi seputar pengembangan website.
+                </p>
+              </div>
+
+              <div className="mx-auto mt-10 max-w-3xl">
+                <ContactForm />
+              </div>
 
               <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
                 <a
                   href={`mailto:${profile.email}`}
-                  className="rounded-full bg-violet-400 px-6 py-3 text-sm font-semibold text-black transition hover:bg-violet-300"
+                  className="rounded-full border border-white/15 px-6 py-3 text-center text-sm font-semibold text-white transition hover:border-violet-400"
                 >
-                  Email Saya
+                  Email Langsung
                 </a>
 
-                <a
-                  href={profile.github}
-                  target="_blank"
-                  rel="noreferrer noopener"
-                  className="rounded-full border border-white/15 px-6 py-3 text-sm font-semibold text-white transition hover:border-violet-400"
-                >
-                  GitHub
-                </a>
-                <a
-                  href={profile.resumeUrl}
-                  target="_blank"
-                  rel="noreferrer noopener"
-                  className="rounded-full border border-white/15 px-6 py-3 text-sm font-semibold text-white transition hover:border-violet-400 hover:bg-violet-400/10"
-                >
-                  Download CV
-              </a>
+                {profile.github ? (
+                  <a
+                    href={profile.github}
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    className="rounded-full border border-white/15 px-6 py-3 text-center text-sm font-semibold text-white transition hover:border-violet-400"
+                  >
+                    GitHub
+                  </a>
+                ) : null}
+
+                {profile.resumeUrl ? (
+                  <a
+                    href={profile.resumeUrl}
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    className="rounded-full border border-white/15 px-6 py-3 text-center text-sm font-semibold text-white transition hover:border-violet-400"
+                  >
+                    Download CV
+                  </a>
+                ) : null}
               </div>
             </div>
           </Reveal>
